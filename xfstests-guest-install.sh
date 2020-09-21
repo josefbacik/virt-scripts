@@ -33,7 +33,7 @@ echo "Doing guest install"
 
 virt-install --install fedora-rawhide --disk size=10 --memory=4096 --vcpus=2 \
 	--initrd-inject xfstests-ks.cfg --extra-args "ks=file:/xfstests-ks.cfg" \
-	--destroy-on-exit -n $1 || _fail "virt install failed"
+	--destroy-on-exit -n $1 --boot kernel_args="console=ttyS0" || _fail "virt install failed"
 
 echo "Installing ssh key for root"
 mkdir -p mnt
