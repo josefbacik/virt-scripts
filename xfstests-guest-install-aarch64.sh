@@ -29,10 +29,13 @@ then
 	ssh-keygen -f ~/.ssh/xfstests -P ""
 fi
 
+dnf install -y qemu-system-aarch64
+
 echo "Doing guest install"
 
-virt-install --install fedora-33 --disk size=10 --memory=4096 --vcpus=2 \
-	--initrd-inject xfstests-ks.cfg --extra-args "ks=file:/xfstests-ks.cfg" \
+virt-install --install fedora33 --disk size=10 --memory=4096 --vcpus=2 \
+	--arch aarch64 --initrd-inject xfstests-ks-aarch64.cfg \
+	--extra-args "ks=file:/xfstests-ks-aarch64.cfg" \
 	--destroy-on-exit -n $1 || _fail "virt install failed"
 
 echo "Installing ssh key for root"
@@ -71,7 +74,7 @@ EOF
 
 echo "Rebooting then setting up storage, this takes a few seconds"
 virsh reboot ${1}
-sleep 10
+sleep 30
 ssh -o "StrictHostKeyChecking=accept-new" root@${1} \
 	"/setup-lvm-xfstests.sh /xfstests-dev /dev/vdb" || \
 	_fail "Couldn't setup the lvm xfstests devices"
