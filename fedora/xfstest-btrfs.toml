@@ -1,0 +1,117 @@
+name = "xfstest-btrfs"
+description = "xfstest image for testing btrfs"
+version = "0.0.2"
+modules = []
+groups = []
+distro = ""
+
+[[packages]]
+name = "acl"
+
+[[packages]]
+name = "attr"
+
+[[packages]]
+name = "bc"
+
+[[packages]]
+name = "cronie"
+
+[[packages]]
+name = "dbench"
+
+[[packages]]
+name = "e2fsprogs"
+
+[[packages]]
+name = "e2fsprogs-devel"
+
+[[packages]]
+name = "fio"
+
+[[packages]]
+name = "gawk"
+
+[[packages]]
+name = "gcc"
+
+[[packages]]
+name = "git"
+
+[[packages]]
+name = "indent"
+
+[[packages]]
+name = "libacl-devel"
+
+[[packages]]
+name = "libaio-devel"
+
+[[packages]]
+name = "libattr-devel"
+
+[[packages]]
+name = "libcap-devel"
+
+[[packages]]
+name = "libtool"
+
+[[packages]]
+name = "liburing-devel"
+
+[[packages]]
+name = "libuuid-devel"
+
+[[packages]]
+name = "lvm2"
+
+[[packages]]
+name = "make"
+
+[[packages]]
+name = "psmisc"
+
+[[packages]]
+name = "python3"
+
+[[packages]]
+name = "quota"
+
+[[packages]]
+name = "sed"
+
+[[packages]]
+name = "sqlite"
+
+[[packages]]
+name = "udftools"
+
+[[packages]]
+name = "xfsprogs"
+
+[[packages]]
+name = "xfsprogs-devel"
+
+[[packages]]
+name = "libblkid-devel"
+
+[[packages]]
+name = "zlib-devel"
+
+[[packages]]
+name = "libzstd-devel"
+
+[[packages]]
+name = "systemd-devel"
+
+[[packages]]
+name = "lzo-devel"
+
+[customizations]
+
+[[customizations.sshkey]]
+user = "root"
+key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC7chDMo61n0d5L/17tLU6FBymiRSFzGj34auUdUY71bzv4t42uifxbkVwuc/sVg2uqh2f6F4NJe6oh/vDhmShuxgW+JVSaNk78RyNRUrAN+RITYGTTeyWcgwjW2FQYe+nVDA8OhEhF67xNRTvF8HrAifciXLI4JcThvjxNneBRa5/PTzDwKdMRUxAIsFBDGgepwsC+TTPOs5l0ieH+BcyJnz8ACSLqYk1II0jv3AfrRgxdvaAcNLvzAr95jqhXisCYNEA8JmPdnW91gR0GTvHRT++4gHrelJ6AcHjOvFxvcMc/KJ0GPrJt0O2A3io08LzV6I0Ea/JGOVeuCMXm3OCXPlxD7aGJCeBoB0cYi0n+amzsqxHcWziTbVo8lpPY0qY6wE0ZbBpIK0lyoOO0u77I5CGf/z+IsUk8fuAUn/5n/+Oa5n5oId1iT1AAHII9ZtI+iOqXGR/U3nbdRxzGoW554SRAByfc6U9BwZ7lZLXksnzSNYHNqvsfE9C1MeHRkJ8= josef@perftesting"
+[customizations.timezone]
+[customizations.locale]
+[customizations.firewall]
