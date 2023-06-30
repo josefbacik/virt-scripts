@@ -1,9 +1,7 @@
 #!/bin/bash
 
-_fail() {
-	echo $1
-	exit 1
-}
+. ./local.config
+. ./common
 
 [ "$#" -ne 1 ] && _fail "must specify a vm name"
 
@@ -19,6 +17,7 @@ make clean-all
 ./configure --disable-documentation --enable-experimental --bindir=/usr/sbin --prefix=/usr --exec-prefix=/usr --disable-python
 make -j4
 make install
+cp btrfs-corrupt-block /usr/sbin
 EOM
 
 ssh root@$1 "$COMMAND"

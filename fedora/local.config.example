@@ -1,0 +1,4 @@
+VMS=("xfstests5" "xfstests6" "xfstests7" "xfstests8" "xfstests9" "xfstests10")
+IMAGE_DIR=/var/lib/libvirt/images
+KERNEL_DIR=/opt/btrfs-devel
+VGNAME=xfstests

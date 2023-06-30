@@ -1,6 +1,6 @@
 name = "xfstest-btrfs"
 description = "xfstest image for testing btrfs"
-version = "0.0.2"
+version = "0.0.0"
 modules = []
 groups = []
 distro = ""
@@ -107,7 +107,19 @@ name = "systemd-devel"
 [[packages]]
 name = "lzo-devel"
 
+[[packages]]
+name = "fsverity-utils"
+
+[[packages]]
+name = "fio-engine-libaio"
+
+[[packages]]
+name = "gdbm-devel"
+
 [customizations]
+
+[[customizations.user]]
+name = "fsgqa"
 
 [[customizations.sshkey]]
 user = "root"
