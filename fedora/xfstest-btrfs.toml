@@ -1,9 +1,9 @@
 name = "xfstest-btrfs"
 description = "xfstest image for testing btrfs"
-version = "0.0.0"
+version = "0.0.3"
 modules = []
 groups = []
-distro = ""
+distro = "fedora-38"
 
 [[packages]]
 name = "acl"
@@ -121,9 +121,6 @@ name = "gdbm-devel"
 [[customizations.user]]
 name = "fsgqa"
 
-[[customizations.sshkey]]
-user = "root"
-key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC7chDMo61n0d5L/17tLU6FBymiRSFzGj34auUdUY71bzv4t42uifxbkVwuc/sVg2uqh2f6F4NJe6oh/vDhmShuxgW+JVSaNk78RyNRUrAN+RITYGTTeyWcgwjW2FQYe+nVDA8OhEhF67xNRTvF8HrAifciXLI4JcThvjxNneBRa5/PTzDwKdMRUxAIsFBDGgepwsC+TTPOs5l0ieH+BcyJnz8ACSLqYk1II0jv3AfrRgxdvaAcNLvzAr95jqhXisCYNEA8JmPdnW91gR0GTvHRT++4gHrelJ6AcHjOvFxvcMc/KJ0GPrJt0O2A3io08LzV6I0Ea/JGOVeuCMXm3OCXPlxD7aGJCeBoB0cYi0n+amzsqxHcWziTbVo8lpPY0qY6wE0ZbBpIK0lyoOO0u77I5CGf/z+IsUk8fuAUn/5n/+Oa5n5oId1iT1AAHII9ZtI+iOqXGR/U3nbdRxzGoW554SRAByfc6U9BwZ7lZLXksnzSNYHNqvsfE9C1MeHRkJ8= josef@perftesting"
 [customizations.timezone]
 [customizations.locale]
 [customizations.firewall]
