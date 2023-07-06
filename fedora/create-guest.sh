@@ -10,12 +10,6 @@ VM_IMAGE=$IMAGE_DIR/$1.qcow2
 
 [ ! -f "$IMAGE" ] && _fail "You must generate the base image first"
 
-VIRTIOFS_XML="--xml ./devices/filesystem/driver/@type=virtiofs --xml ./devices/filesystem/driver/@queue=1024"
-if [[ ! -z "$USE_9P" ]]
-then
-	VIRTIOFS_XML=""
-fi
-
 cp $IMAGE $VM_IMAGE
 qemu-img resize $VM_IMAGE 10G
 
@@ -30,11 +24,6 @@ virt-install --memory 4096 --vcpus 2 --name $1 \
 	--xml ./os/firmware/feature/@name=secure-boot \
 	--xml ./memoryBacking/source/@type=memfd \
 	--xml ./memoryBacking/access/@mode=shared \
-	--xml ./devices/filesystem/@type=mount \
-	--xml ./devices/filesystem/@accessmode=passthrough \
-	$VIRTIOFS_XML \
-	--xml ./devices/filesystem/source/@dir=$KERNEL_DIR \
-	--xml ./devices/filesystem/target/@dir=kernel || \
 	_fail "Failed to create the guest, if it complained about virtiofs set USE_9P in local.config"
 
 echo "Waiting for the network to become available"
