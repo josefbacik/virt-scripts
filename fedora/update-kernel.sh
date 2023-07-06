@@ -15,7 +15,8 @@ then
 	<source dir='$2' />
 	<target dir=kernel />
 </filesystem>
-	EOF
+EOF
+
 else
 	MOUNT_CMD="mount -t virtiofs -o ro kernel /kernel"
 	cat > $TMPFILE << EOF
@@ -24,7 +25,8 @@ else
 	<source dir='$2' />
 	<target dir=kernel />
 </filesystem>
-	EOF
+EOF
+
 fi
 
 virsh attach-device $1 --live $TMPFILE
