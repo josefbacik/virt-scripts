@@ -28,7 +28,6 @@ else
 fi
 
 virsh attach-device $1 --live $TMPFILE
-rm $TMPFILE
 
 read -r -d '' COMMAND << EOM
 $MOUNT_CMD
@@ -37,5 +36,8 @@ make modules_install && make install && reboot
 EOM
 
 ssh root@$1 "$COMMAND"
+
+virsh detach-device $1 --live $TMPFILE
+rm $TMPFILE
 
 _wait_for_vm_to_boot $1
