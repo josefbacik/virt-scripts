@@ -13,7 +13,7 @@ then
 	cat > $TMPFILE << EOF
 <filesystem type='mount' accessmode='passthrough'>
 	<source dir='$2' />
-	<target dir=kernel />
+	<target dir='kernel' />
 </filesystem>
 EOF
 
@@ -21,9 +21,9 @@ else
 	MOUNT_CMD="mount -t virtiofs -o ro kernel /kernel"
 	cat > $TMPFILE << EOF
 <filesystem type='mount' accessmode='passthrough'>
-	<driver type=virtiofs queue=1024 />
+	<driver type='virtiofs' queue=1024 />
 	<source dir='$2' />
-	<target dir=kernel />
+	<target dir='kernel' />
 </filesystem>
 EOF
 
