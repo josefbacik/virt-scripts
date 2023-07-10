@@ -1,5 +1,8 @@
 #!/bin/bash
 
+MYPATH=$(realpath $0)
+cd $(dirname $MYPATH)
+
 . ./local.config
 . ./common
 
@@ -29,7 +32,7 @@ EOF
 
 fi
 
-virsh attach-device $1 --live $TMPFILE
+sudo virsh attach-device $1 --live $TMPFILE
 
 read -r -d '' COMMAND << EOM
 $MOUNT_CMD
@@ -39,7 +42,7 @@ EOM
 
 ssh root@$1 "$COMMAND"
 
-virsh detach-device $1 --live $TMPFILE
+sudo virsh detach-device $1 --live $TMPFILE
 rm $TMPFILE
 
 _wait_for_vm_to_boot $1
