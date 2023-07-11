@@ -32,7 +32,7 @@ EOF
 
 fi
 
-sudo virsh attach-device $1 --live $TMPFILE
+virsh attach-device $1 --live $TMPFILE || _fail "Couldn't attach our device"
 
 read -r -d '' COMMAND << EOM
 $MOUNT_CMD
@@ -42,7 +42,7 @@ EOM
 
 ssh root@$1 "$COMMAND"
 
-sudo virsh detach-device $1 --live $TMPFILE
+virsh detach-device $1 --live $TMPFILE || _fail "Couldn't detach our device"
 rm $TMPFILE
 
 _wait_for_vm_to_boot $1

@@ -23,7 +23,7 @@ virt-install --memory 4096 --vcpus 2 --name $1 \
 	--xml ./os/firmware/feature/@enabled=no \
 	--xml ./os/firmware/feature/@name=secure-boot \
 	--xml ./memoryBacking/source/@type=memfd \
-	--xml ./memoryBacking/access/@mode=shared \
+	--xml ./memoryBacking/access/@mode=shared || \
 	_fail "Failed to create the guest, if it complained about virtiofs set USE_9P in local.config"
 
 echo "Waiting for the network to become available"
