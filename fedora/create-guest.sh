@@ -13,7 +13,7 @@ VM_IMAGE=$IMAGE_DIR/$1.qcow2
 cp $IMAGE $VM_IMAGE
 qemu-img resize $VM_IMAGE 10G
 
-virt-install --memory 4096 --vcpus 2 --name $1 \
+virt-install --memory 5120 --vcpus 2 --name $1 \
 	--import --disk $VM_IMAGE,format=qcow2,bus=virtio \
 	--os-variant fedora38 \
 	--network bridge=virbr0,model=virtio \
@@ -23,8 +23,8 @@ virt-install --memory 4096 --vcpus 2 --name $1 \
 	--xml ./os/firmware/feature/@enabled=no \
 	--xml ./os/firmware/feature/@name=secure-boot \
 	--xml ./memoryBacking/source/@type=memfd \
-	--xml ./memoryBacking/access/@mode=shared || \
-	_fail "Failed to create the guest, if it complained about virtiofs set USE_9P in local.config"
+	--xml ./memoryBacking/access/@mode=shared \
+	|| _fail "Failed to create the guest, if it complained about virtiofs set USE_9P in local.config"
 
 echo "Waiting for the network to become available"
 

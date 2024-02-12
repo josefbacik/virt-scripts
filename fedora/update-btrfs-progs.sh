@@ -1,5 +1,8 @@
 #!/bin/bash
 
+MYPATH=$(realpath $0)
+cd $(dirname $MYPATH)
+
 . ./local.config
 . ./common
 
@@ -9,9 +12,7 @@ read -r -d '' COMMAND << EOM
 cd btrfs-progs
 git reset --hard
 git checkout master
-git branch -D devel
 git pull
-git checkout devel
 make clean-all
 ./autogen.sh
 ./configure --disable-documentation --enable-experimental --bindir=/usr/sbin --prefix=/usr --exec-prefix=/usr --disable-python

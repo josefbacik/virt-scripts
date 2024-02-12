@@ -1,5 +1,8 @@
 #!/bin/bash
 
+MYPATH=$(realpath $0)
+cd $(dirname $MYPATH)
+
 . ./local.config
 . ./common
 

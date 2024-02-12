@@ -3,7 +3,7 @@ description = "xfstest image for testing btrfs"
 version = "0.0.3"
 modules = []
 groups = []
-distro = "fedora-38"
+distro = "fedora-39"
 
 [[packages]]
 name = "acl"
