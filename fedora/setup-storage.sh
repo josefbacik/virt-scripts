@@ -36,9 +36,9 @@ cat > $FILE << EOF
 [btrfs]
 TEST_DIR=/mnt/test
 TEST_DEV=/dev/vdb
-SCRATCH_DEV_POOL="/dev/vdc /dev/vdd /dev/vde /dev/vdg /dev/vdh /dev/vdi /dev/vdj"
+SCRATCH_DEV_POOL="/dev/vdc /dev/vdd /dev/vde /dev/vdg /dev/vdh /dev/vdi /dev/vdj /dev/vdk"
 SCRATCH_MNT=/mnt/scratch
-LOGWRITES_DEV=/dev/vdk
+LOGWRITES_DEV=/dev/vdl
 MKFS_OPTIONS="-K"
 EOF
 

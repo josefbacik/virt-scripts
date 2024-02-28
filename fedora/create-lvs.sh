@@ -5,7 +5,7 @@
 
 [ "$#" -ne 1 ] && _fail "must specify a vm name"
 
-DEVICES=("vdb" "vdc" "vdd" "vde" "vdf" "vdg" "vdh" "vdi" "vdj" "vdk")
+DEVICES=("vdb" "vdc" "vdd" "vde" "vdf" "vdg" "vdh" "vdi" "vdj" "vdk" "vdl")
 
 for i in $(seq 0 9)
 do
