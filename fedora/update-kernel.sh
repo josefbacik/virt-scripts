@@ -43,7 +43,7 @@ EOM
 
 ssh root@$1 "$COMMAND"
 
-virsh detach-device $1 --live $TMPFILE || _fail "Couldn't detach our device"
+sudo virsh detach-device $1 --live $TMPFILE || _fail "Couldn't detach our device"
 rm $TMPFILE
 
 _wait_for_vm_to_boot $1
