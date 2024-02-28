@@ -7,11 +7,11 @@
 
 DEVICES=("vdb" "vdc" "vdd" "vde" "vdf" "vdg" "vdh" "vdi" "vdj" "vdk" "vdl")
 
-for i in $(seq 0 9)
+for i in $(seq 0 10)
 do
 	FILE=$IMAGE_DIR/$1-${DEVICES[$i]}.qcow2
 
-	qemu-img create -f qcow2 $FILE 10G || _fail "Couldn't create image file"
+	qemu-img create -f qcow2 $FILE 12G || _fail "Couldn't create image file"
 	
 	virsh attach-disk --subdriver qcow2 --persistent $1 $FILE \
 		${DEVICES[$i]} || _fail "couldn't attach disk"
